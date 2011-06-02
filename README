@@ -1,0 +1,30 @@
+A simple chip-8 emulator.
+
+Usage:
+	Run executable from command line specifying a path to a Chip-8 ROM.
+	e.g. ./Chip8-Emulator ../GAMES/PONG
+
+Keys:
+	The key bindings are as follows:
+		key 1: 1
+		key 2: 2
+		key 3: 3
+		key C: 4
+		key 4: q
+		key 5: w
+		key 6: e
+		key D: r
+		key 7: a
+		key 8: s
+		key 9: d
+		key E: f
+		key A: z
+		key 0: x
+		key B: c
+		key F: v
+
+Known Issues:
+	- Currently does not play sound
+	- Some ROMS may not work.
+		+ Roms known to now work:
+			- VERS
