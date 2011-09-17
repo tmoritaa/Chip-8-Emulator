@@ -1,3 +1,6 @@
+#ifndef _C8RAM_H_
+#define _C8RAM_H_
+
 #include "Defs.h"
 
 #define RAM_SIZE 4096
@@ -25,3 +28,5 @@ private:
 	BYTE ram[RAM_SIZE];
 	int pc;
 };
+
+#endif

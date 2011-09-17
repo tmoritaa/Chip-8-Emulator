@@ -26,8 +26,9 @@ Known Issues:
 #define ORIGINAL_HEIGHT 32
 #define MODIFIER 10
 #define INST_PER_SEC 60
+#define SECOND_DELAY 1.5
 
-#define LOG 0 
+#define LOG 0
 
 BYTE generalRegisters[GENERAL_REGISTER_SIZE];
 SHORT registerI;
@@ -422,6 +423,7 @@ int executeInstruction(SHORT instN)
 				for (int yline = 0; yline < height; yline++) {
 					pixel = C8Ram::instance()->getByteContent(registerI + yline); 
 
+
 					if (((int)valy + (int)yline) >= ORIGINAL_HEIGHT) {
 						break;
 					}
@@ -432,7 +434,8 @@ int executeInstruction(SHORT instN)
 						}
 
 						if ((pixel & (0x80 >> xline)) != 0) {
-							if (screenPixels[(valx + xline)][(valy + yline)] == 1) {
+
+							if ((screenPixels[(valx + xline)][(valy + yline)]) == 1) {
 								generalRegisters[0xf] = 1;
 							}
 
@@ -443,8 +446,8 @@ int executeInstruction(SHORT instN)
 
 				drawDone = true;
 				draw = true;
-				sprintf(buffer, "DRW V%X, V%X, %d\n\txVal: %d\n\tyVal: %d\n", inst & 0x000f, (inst & 0xf000) >> 12, (inst & 0x0f00) >> 8, 
-								generalRegisters[regXIndex], generalRegisters[regYIndex]);
+				sprintf(buffer, "DRW V%X, V%X, %d\n\txVal: %d\n\tyVal: %d\n", inst & 0x000f, 
+						(inst & 0xf000) >> 12, (inst & 0x0f00) >> 8, generalRegisters[regXIndex], generalRegisters[regYIndex]);
 
 			} else {
 				printf(buffer, "No instruction found\n");
@@ -732,7 +735,7 @@ void emulationLoop()
 
 	free (buffer);
 		
-	usleep(2*1000);
+	usleep(SECOND_DELAY*1000);
 }
 
 void keyUp(unsigned char key, int x, int y) 

@@ -1,3 +1,6 @@
+#ifndef _INSTDEFS_H_
+#define _INSTDEFS_H_
+
 #define INST_CLASS_0 0x0000
 #define INST_CLASS_1 0x0010
 #define INST_CLASS_2 0x0020
@@ -52,3 +55,4 @@
 #define INST_LD_IV 0x55F0
 #define INST_LD_VI 0x65F0
 
+#endif

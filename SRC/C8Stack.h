@@ -1,3 +1,6 @@
+#ifndef _C8STACK_H_
+#define _C8STACK_H_
+
 #include <stack>
 #include "Defs.h"
 
@@ -17,8 +20,6 @@ private:
 	static C8Stack* pInstance;
 
 	std::stack<SHORT> stack;
-
-
-
-
 };
+
+#endif
